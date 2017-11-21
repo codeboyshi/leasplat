@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"      
+ "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+ <mapper namespace="cn.shi.leasplat.dao.GoodsDao">
+ 	<!-- 分页，先按照页码，页容量进行查找，之后需要加入查找条件   条件：商品名称，商品类别名称（通过名称查出类别名相似的id，然后再将in 将id在这个集合中的数据取出）
+ 		需要认识一下<c:if> <c:for> 等标签
+ 	 -->
+ 	
+ 	 <!--  
+ 	 	这种条件查询需要将条件封装成一个实体类，然后声成get方法才能获取到条件参数。。。
+ 	 	<if test="name != null and !''.equals(name.trim())">  
+ 			 and name like CONCAT('%',#{0},'%' )
+ 		</if>
+ 		
+ 		<if test="goodsClassName != null and ''.equals(goodsClassName.trim())">
+ 			or goods_class_id 
+ 				in (select id from goods_class where name like CONCAT('%',#{0},'%' ))
+ 		</if>
+ 		
+ 		 -->
+ 	 
+ 	 <!-- 查询语句分离 -->
+ 	 <sql id="queryGoodsInfo">
+        select 
+        	id,
+ 			name,
+ 			price,
+ 			user_id as userId,
+ 			basic_unit as basicUnit,
+ 			goods_class_id as goodsClassId,
+ 			goods_message as goodsMessage,
+ 			create_time as createTime,
+ 			is_delete as isDelete
+		 from goods 
+	 </sql>
+	 
+ 	<select id="findPage"
+ 		resultType="cn.shi.leasplat.entity.Goods">
+ 		<include refid="queryGoodsInfo"></include>
+ 		where  (  1=1 
+				   and (   name like CONCAT('%',#{2},'%' )
+				 	   or goods_class_id in (select id from goods_class where name like CONCAT('%',#{2},'%' ))
+					  )  
+	 		   )
+	 	and is_delete = 0
+ 		order by id desc
+ 		limit #{0},#{1}
+ 	</select>
+
+ 	<select id="getCount"
+ 	resultType="int">
+	 	select count(*)
+	 	from goods
+	 	where  (  1=1 
+				   and (   name like CONCAT('%',#{0},'%' )
+				 	   or goods_class_id in (select id from goods_class where name like CONCAT('%',#{0},'%' ))
+					  )  
+	 		   )
+	 	and is_delete = 0
+	 	
+ 	</select>
+ 	
+ 	<!-- 插入商品 -->
+ 	<insert id="save"
+ 			parameterType="cn.shi.leasplat.entity.Goods">
+ 			insert into
+ 				goods
+ 				(
+	 			name,
+	 			price,
+	 			user_id,
+	 			basic_unit,
+	 			goods_class_id,
+	 			create_time,
+	 			is_delete,
+	 			goods_message
+ 				)
+ 			values(
+ 				#{name},#{price},#{userId},#{basicUnit}
+ 				,#{goodsClassId},#{createTime},#{isDelete},#{goodsMessage}
+ 			)
+ 	</insert>
+ 	
+ 	<!-- 更新商品 -->
+ 	<update id="update"
+ 	parameterType="cn.shi.leasplat.entity.Goods">
+ 		update
+ 			goods
+ 		<set>
+			name = #{name},
+ 			price = #{price},
+ 			user_id = #{userId},
+ 			basic_unit = #{basicUnit},
+ 			goods_class_id = #{goodsClassId},
+ 			goods_message = #{goodsMessage}
+ 		</set>
+ 		where
+ 			id = #{id}
+ 	</update>
+ 	<!-- 查询一件商品 -->
+ 	<select id="getById"
+ 			parameterType="int"
+ 			resultType="cn.shi.leasplat.entity.Goods">
+ 		<include refid="queryGoodsInfo"/>
+ 		where
+ 			id = #{id}
+ 	</select>
+ 	
+ 	<!-- 删除商品，及修改商品is_delete字段 -->
+ 	<update id="delete"
+ 		parameterType="int">
+ 		update
+ 			goods
+		<set>
+			is_delete = 1
+		</set>
+		where 
+			id = #{id}
+ 	</update>
+ 	
+ 	<!-- 查出个数 -->
+ 	<select id="getMyGoodsCount"
+ 		parameterType="int"
+ 		resultType="int"
+ 		>
+ 		select count(*) 
+ 		from 
+ 		goods 
+ 		where user_id = #{userId}
+ 		and is_delete = 0
+ 	</select>
+ 	
+ 	<select id="findMyGoods"
+ 		parameterType="int"
+ 		resultType="cn.shi.leasplat.entity.Goods">
+ 		<include refid="queryGoodsInfo"></include>
+ 		where user_id = #{userId}
+ 		and is_delete = 0
+ 	</select>
+ 	
+ 	<!-- 查询最新的6件商品 -->
+ 	<select id="findNewestGoods"
+ 		parameterType="int"
+ 		resultType="cn.shi.leasplat.entity.Goods">
+ 		<include refid="queryGoodsInfo"></include>
+ 		where is_delete = 0
+ 		order by id desc
+ 		limit 0,6
+ 	</select>
+ 	
+ 	<!-- 获取id -->
+ 	 <select id="getId"
+	 	resultType="int">
+	     select LAST_INSERT_ID()
+	 </select>
+ </mapper>

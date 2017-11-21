@@ -1,0 +1,78 @@
+.logo > img {
+    width: 64px;
+    height: 64px;
+}
+
+.login-menu {
+    width: 400px;
+    padding: 15px;
+    margin:0 auto;
+}
+
+.logo {
+    padding: 0;
+}
+
+.navbar-brand {
+    height: 64px;
+}
+
+.navbar {
+    margin-bottom: 0;
+}
+
+.form-control {
+    height: 45px;
+}
+
+.form-control-feedback {
+    line-height: 45px;
+}
+ul.nav>li>a{
+    line-height: 33px;
+}
+section {
+    position: relative;
+}
+
+.carousel-inner > .item > img, .carousel-inner > .item > a > img {
+    height: 100px;
+    width: 510px;
+}
+
+section > div.row > div > a > img {
+    display: block;
+    margin: 0 auto;
+}
+
+section > div.row > div > a > p {
+    text-align: center;
+}
+
+nav > div.row > ul > li {
+    box-sizing: border-box;
+    border: 1px solid #6cf;
+    height: 200px;
+    margin-top: 10px;
+    margin-right: 35px;
+    margin-bottom: 30px;
+}
+
+footer > p {
+    text-align: center;
+    margin-bottom: 5px;
+}
+
+#toTop > img {
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    cursor: pointer;
+}
+#yz{
+    width: 180px;
+    display: inline-block;
+}
+.hi{
+    opacity: 0;
+}

@@ -1,0 +1,309 @@
+html,body,div,ul,li,p,input,button,img,ol,dl,dt,dd{
+	margin:0;
+	padding:0;
+}
+li{
+	list-style:none;
+}
+a{
+	text-decoration:none;
+}
+img{
+	border:0;
+}
+
+body{
+	/*background:url(../images/bg.png) repeat 0 0;*/
+	/*background:#FBFBEA;*/
+	/*background:#F5F6EB;*/
+	width:100%;
+}
+#box{
+	width:100%;
+}
+
+header,header a{
+	width:100%;
+	height:100px;
+}
+header a{
+	display:block;
+	background:url(../images/banner.gif) no-repeat 0 0;
+	opacity:0.5;
+	background-size:100% 100px;
+}
+
+#login{
+	width:100%;
+	height:28px;
+	background:#333;
+}
+#login div{
+	width:1200px;
+	margin:0 auto;
+	line-height:28px;
+	position:relative;
+	height:28px;
+	color:#FFF;
+}
+#login div form{
+	position:absolute;
+	right:400px;
+	top:28px;
+	z-index:20;
+}
+#login div ol li{
+	position:absolute;
+	left:0;
+	top:0;
+	padding:20px;
+	background:#333;
+	width:310px;
+	padding:0 20px;
+}
+#login ol li label{
+	width:80px;
+	display:inline-block;
+	text-align:right;
+}
+#login .log{
+	display:none;
+	height:280px;
+}
+#login .reg{
+	display:none;
+	height:250px;
+}
+#login .form-group{
+	float:left;
+	margin-bottom:14px;
+}
+#login p{
+	margin-bottom:5px;
+	font-size:14px;
+	height:22px;
+}
+#login .form-group input{
+	outline:0;
+	border:0;
+	height:22px;
+	border-radius:5px;
+	padding-left:15px; 
+}
+#login button{
+	padding:8px 17px;
+	border:0;
+	border-radius:5px;
+	font-size:16px;
+	background:skyblue;
+	cursor:pointer;
+	outline:0;
+	margin-left:115px;
+	margin-top:5px;
+}
+#login .sanjiao{
+	position:absolute;
+	color:#C71220;
+	z-index:30;
+	top:-18px;
+	display:none;
+}
+#login .check-code input{
+	width:80px;
+}
+#login .check-code img{
+	vertical-align:middle;
+}
+#login div p{
+	float:right;
+	margin-right:50px;
+}
+#login p a{
+	float:left;
+	padding:0 5px;
+	color:#A8A8A8;
+	font-size:13px;
+}
+#login p a:hover{
+	color:#C71220;
+}
+#login p a:nth-child(1),#login p a:nth-child(3){
+	color:#FFF;
+	padding:0 10px;
+}
+#login p a:nth-child(3){
+	margin-right:20px;
+}
+#login p a:nth-child(1):hover,#login p a:nth-child(3):hover{
+	background:#C71220;
+}
+#login p span{
+	float:left;
+	margin:0 8px;
+}
+
+#search{
+	width:100%;
+	background:#F3F2ED;
+	height:100px;
+	padding-top:35px;
+}
+#search>div{
+	width:1200px;
+	margin:0 auto;
+	position:relative;
+}
+#search div div{
+	width:350px;
+	height:35px;
+	border:2px solid #C71220;
+	border-radius:5px;
+	margin:0 auto;
+}
+#search div div input{
+	width:280px;
+	height:35px;
+	border:0;
+	outline:none;
+	float:left;
+	text-indent:10px;
+}
+#search div div button{
+	width:70px;
+	height:35px;
+	float:left;
+	border:0;
+	background:#C71220;
+	color:#FFF;
+	font-size:15px;
+	outline:0;
+	cursor:pointer;
+}
+#search img{
+	height:65px;
+	position:absolute;
+	left:300px;
+	top:-10px;
+}
+
+#nav{
+	width:100%;
+	height:80px;
+	background:#FFF;
+}
+#nav ul{
+	width:1200px;
+	margin:0 auto;
+}
+#nav ul li{
+	float:left;
+	padding:0 30px;
+	line-height:80px;
+}
+#nav ul li:nth-child(1){
+	margin-left:280px;
+}
+#nav ul li a{
+	color:#000;
+}
+#nav ul li a:hover{
+	color:#C71220;
+}
+#nav ul li a span{
+	color:#C71220;
+	font-size:20px;
+}
+
+#main{
+	width:1200px;
+	margin:0 auto;
+}
+#main ul li{
+	width:250px;
+	margin:20px;
+	height:270px;
+	border:1px solid #DFDFDF;
+	padding:20px 50px;
+	float:left;
+}
+#main ul li a{
+	float:left;
+}
+#main ul li a{
+	color:#333;
+	font-size:16px;
+	font-weight:900;
+}
+#main ul li img{
+	width:250px;
+	height:160px;
+}
+#main ul li dt{
+	margin-bottom:20px;
+}
+#main ul dl dd{
+	width:100px;
+	float:left;
+	height:30px;
+	margin-top:20px;
+	padding:0 25px;
+}
+#main ul dl dd:nth-child(3){
+	text-align:right;
+}
+#main ul dl dd:nth-child(4){
+	width:350px;
+}
+#main ul dl dd span{
+	color:#C71220;
+}
+#main h4 i{
+	/*color:#A17D54;*/
+	color:#F55D12;
+	font-size:35px;
+	font-weight:100;
+	vertical-align:middle;
+}
+#main h4 a{
+	float:right;
+	padding:5px 10px;
+	font-size:13px;
+	font-weight:400;
+	margin-right:20px;
+	color:#333;
+}
+#main h4 a:hover{
+	background:#F55D12;
+	border-radius:10px;
+	color:#FFF;
+}
+
+.return-top{
+	position:fixed;
+	bottom:80px;
+	right:80px;
+	display:none;
+}
+
+footer{
+	width:100%;
+	float:left;
+	background:#F3F2ED;
+	height:50px;
+	margin-top:40px;
+	padding:15px 0 10px 0;
+}
+footer div{
+	width:1200px;
+	margin:0 auto;
+	text-align:center;
+	line-height:24px;
+}
+footer div a{
+	color:#333;
+	font-size:15px;
+}
+footer div p{
+	font-size:13px;
+	color:#666;
+}

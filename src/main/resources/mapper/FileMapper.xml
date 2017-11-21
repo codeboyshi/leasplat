@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"      
+ "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+ <mapper namespace="cn.shi.leasplat.dao.FileDao">
+ 	<!-- 查询语句分离 -->
+ 	 <sql id="queryFileInfo">
+        select 
+        	id,
+ 			path
+		 from file
+	 </sql>
+	 <select id="getById"
+	 	parameterType="int"
+	 	resultType="cn.shi.leasplat.entity.File">
+	 	<include refid="queryFileInfo"/>
+	 	where 
+	 		id = #{id}
+	 </select>
+	 
+	 <insert id="save"
+	 	parameterType="cn.shi.leasplat.entity.File">
+	 	insert into
+	 		file
+	 		(
+	 			path
+	 		)
+	 		values(
+	 		   #{path}
+	 		)
+	 </insert>
+	 
+	 <select id="getId"
+	 	resultType="int">
+	     select LAST_INSERT_ID()
+	 </select>
+ </mapper>

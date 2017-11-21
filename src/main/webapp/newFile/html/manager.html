@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>管理员页面</title>
+	<link rel="stylesheet" type="text/css" href="../iconfont/iconfont.css" />
+	<link rel="stylesheet" type="text/css" href="../iconfont2/iconfont.css" />
+	<link rel="stylesheet" type="text/css" href="../css/kkpager_blue.css" />
+	<style type="text/css">
+		html,body,div,ul,li,p,input,button,img,ol,dl,dt,dd,h1,h2,h3,h4,h5,h6,section{
+			margin:0;
+			padding:0;
+		}
+		li{
+			list-style:none;
+		}
+		a{
+			text-decoration:none;
+		}
+		img{
+			border:0;
+		}
+
+		html{
+			width:100%;
+			height:100%;
+		}
+		body{
+			background:#E1DFDD;
+			height:100%;
+			width:100%;
+		}
+		#box{
+			width:100%;
+			height:100%;
+		}
+
+		#nav{
+			width:200px;
+			position:absolute;
+			background:#E1DFDD;
+			height:100%;
+		}
+		#nav li{
+			height:65px;
+			width:150px;
+			padding:0 20px 0 30px;
+			text-align:left;
+		}
+		#nav li a{
+			color:#666;
+			line-height:60px;
+			vertical-align:top;
+		}
+		#nav li a i{
+			width:45px;
+			float:left;
+		}
+		#nav .open{
+			background:#FFF;
+		}
+		#nav .open a{
+			color:#C71220;
+		}
+		#box .leave{
+			color:#FFF;
+			margin-left:20px;
+		}
+		#box .leave:hover{
+			color:#C71220;
+		}
+
+		#main{
+			height:100%;
+			width:100%;
+			margin-top:30px;
+		}
+		#box #container{
+			height:100%;
+			width:100%;
+			background:#FFF;
+		}
+		#container .ctx{
+			margin:0 50px 0 250px;
+			padding-top:65px;
+		}
+		#container .search{
+			padding:10px;
+			float:left;
+			box-shadow:0px 0px 3px 3px #ccc;
+			width:100%;
+		}
+		#container .search .group{
+			margin:10px 0;
+			float:left;
+			width:50%;
+		}
+		#container .search .group label{
+			width:30%;
+			text-align:right;
+			display:inline-block;
+		}
+		#container .search .group input{
+			width:60%;
+			height:35px;
+			border:0;
+			outline:0;
+			border:1px solid #ccc;
+			border-radius:5px;
+		}
+		#container .search .btn-group{
+			width:100%;
+			text-align:center;
+			float:left;
+			padding-top:10px;
+		}
+		#container .search .btn-group div{
+			display:inline-block;
+			width:80px;
+			height:40px;
+			outline:0;
+			cursor:pointer;
+			line-height:40px;
+			text-align:center;
+			font-weight:900;
+			border-radius:5px;
+		}
+		#container .search .btn-group .search-btn:active{
+			box-shadow:0px 0px 1px 1px blue;
+		}
+		#container .search .btn-group .reset-btn:active{
+			box-shadow:0px 0px 1px 1px gray;
+		}
+		#container .result{
+			float:left;
+			width:100%;
+			padding:10px;
+			box-shadow:0px 0px 3px 3px #ccc;
+			margin-top:30px;
+		}
+		#container .result table{
+			border-collapse:collapse;
+			min-width:100%;
+			background:#D6E9F0;
+		}
+		#container .result table tr td,#container .result table tr th{
+			height:30px;
+			border:1px solid #FFF;
+			padding:5px 8px;
+			text-align:center;
+			border-radius:3px;
+		}
+		#container .result table tr th{
+			background:#67AAED;
+		}
+		#container .result table .btn{
+			height:40px;
+			width:80px;
+			cursor:pointer;
+			display:inline-block;
+			line-height:40px;
+			text-align:center;
+			border-radius:5px;
+			color:#FFF;
+		}
+	</style>
+</head>
+<body>
+	<div id="box">
+		<div style="height:130px;background:url(../images/x3.jpg) no-repeat 0 0;
+			background-size:cover;">
+			<img src="../images/1.png" style="height:100px;margin-top:15px;padding-left:30px;"/>
+			<div style="float:right;margin-right:100px;line-height:45px;font-size:14px;">
+				<p style="display:inline-block;color:#FFF;">欢迎您， <span style="color:#C71220;">admin</span>。</p>
+				<a class="leave" href="javascript:;"><i class="iconfont">&#xe67d;</i> 退出</a>
+			</div>	
+		</div>
+		<div id="main">
+			<ul id="nav">
+				<li class="open"><a href=""><i class="iconfont" style="font-size:25px;">&#xe62e;</i> 用户管理</a></li>
+				<li class=""><a href=""><i class="iconfont" style="font-size:25px;">&#xe61f;</i> 商品类别管理</a></li>
+				<li class=""><a href=""><i class="iconfont" style="font-size:30px;">&#xe60d;</i> 通知管理</a></li>
+				<li class=""><a href=""><i class="iconfont" style="font-size:40px;">&#xe66f;</i> 留言板管理</a></li>
+			</ul>
+			<div id="container">
+				<div class="ctx">
+					<div class="search">
+						<div class="group">
+							<label>姓名：</label>
+							<input type="text" name="" />
+						</div>
+						<div class="group">
+							<label>学号：</label>
+							<input type="text" name="" />
+						</div>
+						<div class="group">
+							<label>身份证号：</label>
+							<input type="text" name="" />
+						</div>
+						<div class="btn-group">
+							<div class="search-btn" style="background:blue;color:#FFF;"><i class="iconfont">&#xe601;</i>搜索</div>
+							<div class="reset-btn" style="background:gray;color:#FFF;margin-left:20px;"><i class="iconfont">&#xe626;</i>重置</div>
+						</div>
+					</div>
+					<div class="result">
+						<div style="width:100%;overflow-x:auto;">
+							<table>
+								<tr>
+									<th>姓名</th>
+									<th>学号</th>
+									<th>身份证号</th>
+									<th>操作</th>
+								</tr>
+								<tr>
+									<td nowrap="">石强</td>
+									<td nowrap="">12093039100</td>
+									<td nowrap="">211232434353453453454</td>
+									<td>
+										<div class="btn" style="background:red;"><i class="iconfont">&#xe604;</i>删除</div>
+										<div class="btn" style="background:#E10000;"><i class="iconfont">&#xe635;</i>禁用</div>
+									</td>
+								</tr>
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</div>
+</body>
+<script type="text/javascript" src="../js/jquery-3.0.0.js"></script>
+<script type="text/javascript" src="../js/kkpager.min.js"></script>
+<script type="text/javascript" src="../js/about-us.js"></script>
+</html>

@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"      
+ "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+ <mapper namespace="cn.shi.leasplat.dao.NoticesDao">
+ 	<sql id="queryNoticesInfo">
+ 		select  id,
+				notice_message as noticeMessage,
+				create_date as createDate,
+				is_delete as isDelete
+			from
+			   notices
+ 	</sql>
+ 	<select id="findList"
+ 	resultType="cn.shi.leasplat.entity.Notices">
+ 		select  id,
+				notice_message as noticeMessage,
+				create_date as createDate,
+				is_delete as isDelete
+			from
+			   notices
+		    where 
+		    	is_delete = 0
+ 	</select>
+ 	<select id="getById"
+ 		resultType="cn.shi.leasplat.entity.Notices">
+ 		<include refid="queryNoticesInfo"></include>
+ 		where
+ 			id = #{id}
+ 	</select>
+ 	<select id="findPage"
+ 		resultType="cn.shi.leasplat.entity.Notices">
+ 		<include refid="queryNoticesInfo"></include>
+ 		where 1=1
+ 		and (notice_message like CONCAT('%',#{2},'%') or #{2}='' or #{2} is Null)
+ 		and is_delete = 0
+ 		order by id desc
+ 		limit #{0},#{1}
+ 	</select>
+	 
+	 <select id="getCount"
+	 	resultType="int">
+	 	select count(*)
+	 	from
+	 		notices
+	 	where 1=1 and (notice_message like CONCAT('%',#{0},'%') or #{0}='' or #{0} is Null)
+	 		and is_delete = 0
+	 </select>
+	 
+	 <insert id="save"
+ 		parameterType="cn.shi.leasplat.entity.Notices">
+ 		insert into 
+ 			notices
+ 			(
+	 			notice_message,
+				create_date,
+				is_delete
+ 			)
+ 			values
+ 			(
+ 				#{noticeMessage},#{createDate},#{isDelete}
+ 			)
+ 	</insert>
+ 	
+ 	<update id="update"
+ 		parameterType="cn.shi.leasplat.entity.Notices">
+ 		update
+ 			notices
+		<set>
+			notice_message = #{noticeMessage},
+			is_delete = #{isDelete}
+		</set>
+		where
+			id = #{id} 
+ 	</update>
+ 	
+ 	<update id="delete"
+ 		parameterType="int">
+ 		update
+ 			notices
+		<set>
+			is_delete = 1
+		</set>
+		where 
+			id = #{id}
+ 	</update>
+ </mapper>

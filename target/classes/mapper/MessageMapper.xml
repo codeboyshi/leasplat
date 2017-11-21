@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"      
+ "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+ <mapper namespace="cn.shi.leasplat.dao.MessageDao">
+ 	<insert id="save"
+		 	parameterType="cn.shi.leasplat.entity.Message"
+		 	>
+ 		insert into 
+ 		messages
+ 		(
+ 			user_id,
+ 			message,
+ 			create_time
+ 		)
+ 		values(
+ 		#{userId},#{message},#{createTime}
+ 		)
+ 	</insert>
+ 	
+ 	<delete id="deleteById"
+ 			parameterType="int">
+ 		delete from
+ 		messages
+ 		where
+ 		id = #{id}
+ 	</delete>
+ 	
+ 	<delete id="deleteAll">
+ 		delete from
+ 		messages
+ 	</delete>
+ 	
+ 	<select id="findPage"
+ 		resultType="cn.shi.leasplat.entity.Message">
+ 		select 
+ 			id,
+ 			user_id as userId,
+ 			message,
+ 			create_time as createTime
+ 		from messages 
+ 		order by id desc
+ 		limit #{0},#{1}
+ 	</select>
+ 	
+ 	<select id="getCount"
+ 			resultType="int">
+ 		select count(*)
+ 		from 
+ 		messages
+ 	</select>
+ </mapper>

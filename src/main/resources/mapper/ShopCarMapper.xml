@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"      
+ "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+  <mapper namespace="cn.shi.leasplat.dao.ShopCarDao">
+  		
+  		 <!-- 查询语句分离 -->
+ 	 <sql id="queryGoodsInfo">
+        select 
+        	id,
+ 			user_id as userId,
+ 			goods_id as goodsId,
+ 			is_delete as isDelete,
+ 			number_of_days as numberOfDays
+		 from  
+		 	shop_cars
+	 </sql>
+  		
+  		<insert id="save"
+  		parameterType="cn.shi.leasplat.entity.ShopCar">
+  			insert into
+		 		shop_cars
+		 		(
+			 		user_id,
+			 		goods_id,
+			 		is_delete,
+			 		number_of_days
+		 		)
+		 		values(
+			 			#{userId},#{goodsId},#{isDelete},#{numberOfDays}
+			 		  )
+  		</insert>
+  		
+  		<!-- 查出个数 -->
+ 	<select id="getMyGoodsCount"
+ 		parameterType="int"
+ 		resultType="int"
+ 		>
+ 		select count(*) 
+ 		from 
+ 		shop_cars 
+ 		where user_id = #{userId}
+ 		and is_delete = 0
+ 	</select>
+ 	
+ 	<select id="findByUserId"
+	 	parameterType="int"
+	 	resultType="cn.shi.leasplat.entity.ShopCar">
+ 		<include refid="queryGoodsInfo"/>
+ 		where
+ 			user_id = #{userId}
+ 			and is_delete = 0
+ 	</select>
+ 	
+ 	<update id="delete"
+ 		parameterType="int">
+ 		update 
+ 			shop_cars
+ 		<set>
+			is_delete = 1
+		</set>
+		where
+			id = #{id} 
+ 	</update>
+ 	
+ 	<update id="update">
+ 		update 
+ 			shop_cars
+ 		<set>
+			number_of_days = #{0}
+		</set>
+		where
+			id = #{1} 
+ 	</update>
+  </mapper>

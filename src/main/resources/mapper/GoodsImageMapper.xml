@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"      
+ "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+ <mapper namespace="cn.shi.leasplat.dao.GoodsImageDao">
+ 	<!-- 查询语句分离 -->
+ 	 <sql id="queryGoodsImageInfo">
+        select 
+        	id,
+ 			path,
+ 			goods_id as goodsId
+		 from goods_images 
+	 </sql>
+	 <!-- 查询某一商品的所有的图片 -->
+	 <select id="findByGoodsId"
+	 	parameterType="int"
+	 	resultType="cn.shi.leasplat.entity.GoodsImage">
+	 	<include refid="queryGoodsImageInfo"/>
+	 	where 
+	 		goods_id = #{goodsId}
+	 </select>
+	 
+	 <!-- 查询某一商品的所有的图片中的一张 -->
+	 <select id="getByGoodsId"
+	   parameterType="int"
+	   resultType="cn.shi.leasplat.entity.GoodsImage">
+	   <include refid="queryGoodsImageInfo"/>
+	   where 
+	   	 goods_id = #{goodsId}
+	   	 limit 1
+	 </select>
+	 
+	 <select id="getById"
+	   parameterType="int"
+	   resultType="cn.shi.leasplat.entity.GoodsImage">
+	   <include refid="queryGoodsImageInfo"/>
+	   where 
+	   	 id = #{id}
+	 </select>
+	 
+	 <!-- 删除某一张图片 -->
+	 <delete id="delete"
+	 parameterType="int">
+	 	delete 
+	 	from goods_images
+	 	where
+	 		id = #{id}
+	 </delete>
+	 
+	 <!-- 删除某一商品的所有图片 -->
+	 <delete id="deleteByGoodsId"
+	 parameterType="int">
+	 	delete 
+	 	from goods_images
+	 	where
+	 		goods_id = #{goodsId}
+	 </delete>
+	 
+	 <!-- 修改某一张图片，即修改路径 -->
+	 <update id="update"
+	 parameterType="cn.shi.leasplat.entity.GoodsImage">
+	 	update 
+	 		goods_images
+ 		<set>
+ 			path = #{path} 
+ 		</set>
+ 		where
+ 			id = #{id}
+	 </update>
+	 <!-- 添加商品图片 -->
+	 <insert id="save"
+	 parameterType="cn.shi.leasplat.entity.GoodsImage">
+	 	insert into
+	 		goods_images
+	 		(
+	 			path,
+	 			goods_id
+	 		)
+	 		values
+	 		(
+	 			#{path},#{goodsId}
+	 		)
+	 </insert>
+ </mapper>

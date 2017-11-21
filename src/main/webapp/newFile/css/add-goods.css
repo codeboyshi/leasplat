@@ -1,0 +1,147 @@
+html,body,div,ul,li,p,input,button,img,ol,dl,dt,dd,h1,h2,h3,h4,h5,h6,section{
+	margin:0;
+	padding:0;
+}
+li{
+	list-style:none;
+}
+a{
+	text-decoration:none;
+}
+img{
+	border:0;
+}
+
+body{
+	/*background:url(../images/bg.png) repeat 0 0;*/
+	/*background:#FBFBEA;*/
+	/*background:#F5F6EB;*/
+	/*background:#F3F2ED;*/
+	width:100%;
+}
+#box{
+	width:100%;
+}
+
+header,header a{
+	width:100%;
+	height:100px;
+}
+header a{
+	display:block;
+	background:url(../images/banner.gif) no-repeat 0 0;
+	opacity:0.5;
+	background-size:100% 100px;
+}
+
+#login{
+	width:100%;
+	height:28px;
+	background:#333;
+	line-height:28px;
+}
+#login div p{
+	float:right;
+	margin-right:50px;
+	height:22px;
+}
+#login p a{
+	float:left;
+	padding:0 10px;
+	color:#A8A8A8;
+	font-size:13px;
+}
+#login p a:hover{
+	color:#C71220;
+}
+#login p span{
+	float:left;
+	margin:0 8px;
+}
+
+#nav{
+	width:100%;
+	height:80px;
+	background:#F3F2ED;
+}
+#nav ul{
+	width:1200px;
+	margin:0 auto;
+}
+#nav ul li{
+	float:left;
+	padding:0 30px;
+	line-height:80px;
+}
+#nav ul li:nth-child(1){
+	margin-left:280px;
+}
+#nav ul li a{
+	color:#000;
+}
+#nav ul li a:hover{
+	color:#C71220;
+}
+#nav ul li a span{
+	color:#C71220;
+	font-size:20px;
+}
+
+#main{
+	width:100%;
+	border-top:5px double #ccc;
+}
+#main .upload{
+	width:1000px;
+	margin:0 auto;
+	padding-bottom:20px;
+	border-left:5px double #ccc;
+	min-height:450px;
+	padding-top:50px;
+}
+#main .upload input[type=text]{
+	width:280px;
+	height:34px;
+	border:0;
+	outline:0;
+	border:1px solid #CCC;
+	border-radius:5px;
+}
+#main .upload label{
+	width:80px;
+	text-align:right;
+	display:inline-block;
+}
+#main .upload .group{
+	padding-top:18px;
+}
+#main .upload textarea{
+	border-radius:5px;
+	border:1px solid #ccc;
+}
+.img-place{
+	width:720px;
+	display:inline-block;
+}
+.img-place img{
+	float:left;
+	margin:5px;
+	height:110px;
+	width:110px;
+}
+.upload-btn{
+	height:45px;
+	width:350px;
+	text-align:center;
+	line-height:45px;
+	margin:60px;
+	margin-left:200px;
+	background:#C71220;
+	color:#FFF;
+}
+.upload-btn:hover{
+	background:#9A0E18;
+}
+.upload-btn:active{
+	box-shadow:0px 0px 1px 1px #C71220;
+}

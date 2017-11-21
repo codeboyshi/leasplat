@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"      
+ "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+ <mapper namespace="cn.shi.leasplat.dao.GoodsClassDao">
+ 	<!-- 查询语句分离 -->
+ 	 <sql id="queryGoodsClassInfo">
+        select 
+        	id,
+ 			name,
+ 			create_time as createTime,
+ 			is_delete as isDelete
+		 from goods_class 
+	 </sql>
+	 
+	 <!-- 查询 -->
+	 <select id="findAll"
+ 		resultType="cn.shi.leasplat.entity.GoodsClass">
+ 		<include refid="queryGoodsClassInfo"></include>
+ 		where
+ 			is_delete = 0
+ 	</select>
+ 	<!-- 根据id查询类别 -->
+ 	<select id="getById"
+ 		parameterType="int"
+ 		resultType="cn.shi.leasplat.entity.GoodsClass">
+ 		<include refid="queryGoodsClassInfo"/>
+ 		where
+ 			id = #{id}
+ 	</select>
+ 	<!-- 以下操作为管理员操作范畴 -->
+ 	<insert id="save"
+ 		parameterType="cn.shi.leasplat.entity.GoodsClass">
+ 		insert into 
+ 			goods_class
+ 			(
+	 			name,
+	 			create_time,
+	 			is_delete
+ 			)
+ 			values
+ 			(
+ 				#{name},#{createTime},#{isDelete}
+ 			)
+ 	</insert>
+ 	
+ 	<update id="update"
+ 		parameterType="cn.shi.leasplat.entity.GoodsClass">
+ 		update
+ 			goods_class
+		<set>
+			name = #{name},
+			is_delete = #{isDelete}
+		</set>
+		where
+			id = #{id} 
+ 	</update>
+ 	
+ 	<update id="delete"
+ 		parameterType="int">
+ 		update
+ 			goods_class
+		<set>
+			is_delete = #{isDelete}
+		</set>
+		where
+			id = #{id}
+ 	</update>
+ 	
+ 	<select id="findPage"
+ 		resultType="cn.shi.leasplat.entity.GoodsClass">
+ 		<include refid="queryGoodsClassInfo"></include>
+ 		where 1=1
+ 		and (name like CONCAT('%',#{2},'%') or #{2}='' or #{2} is Null)
+ 		and is_delete = 0
+ 		order by id desc
+ 		limit #{0},#{1}
+ 	</select>
+	 
+	 <select id="getCount"
+	 	resultType="int">
+	 	select count(*)
+	 	from
+	 		goods_class
+	 	where 1=1 and (name like CONCAT('%',#{0},'%') or #{0}='' or #{0} is Null)
+	 		and is_delete = 0
+	 </select>
+ </mapper>

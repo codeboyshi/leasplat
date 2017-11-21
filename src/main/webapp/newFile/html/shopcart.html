@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>购物车</title>
+	<link rel="stylesheet" type="text/css" href="../iconfont/iconfont.css" />
+	<link rel="stylesheet" type="text/css" href="../css/shopcart.css" />
+</head>
+<body>
+	<div id="box">
+		<header><a href="javascript:;"></a></header>
+		<div id="login">
+			<div>
+				<p>
+					<a class="register" href="javascript:;">shiqiang</a>
+					<a href="javascript:;">我的出租单</a>
+					<a href="javascript:;">业务咨询</a>
+				</p>
+			</div>
+		</div>
+		<div id="nav">
+			<ul>
+				<li><a href="javascript:;">首页</a></li>
+				<li><a href="javascript:;">我要求租</a></li>
+				<li><a href="javascript:;">我要出租</a></li>
+				<li>
+					<a href="javascript:;"><span class="iconfont">&#xe672;</span> 购物车</a>
+				</li>
+				<li><a href="javascript:;">关于我们</a></li>
+			</ul>
+		</div>
+		<div id="main">
+			<ul>
+				<li>
+					<p>商品</p>
+					<p>每日租金（元/天）</p>
+					<p>租借时长（天）</p>
+					<p>操作</p>
+				</li>
+				<li class="goods-incart">
+					<p class="goods-name">
+						无名超贵相机
+					</p>
+					<div class="goods-img">
+						<img src="../images/s1.jpg" />
+					</div>
+					<p class="pay-day">
+						200
+					</p>
+					<div class="add-sub">
+						<i class="iconfont">&#xe643;</i>
+						<input type="text" name="">
+						<i class="iconfont">&#xe603;</i>
+					</div>
+					<div class="del">
+						删除
+					</div>
+				</li>
+				<li class="goods-incart">
+					<p class="goods-name">
+						无名超贵相机
+					</p>
+					<div class="goods-img">
+						<img src="../images/s1.jpg" />
+					</div>
+					<p class="pay-day">
+						200
+					</p>
+					<div class="add-sub">
+						<i class="iconfont">&#xe643;</i>
+						<input type="text" name="">
+						<i class="iconfont">&#xe603;</i>
+					</div>
+					<div class="del">
+						删除
+					</div>
+				</li>
+				<li class="goods-incart">
+					<p class="goods-name">
+						无名超贵相机
+					</p>
+					<div class="goods-img">
+						<img src="../images/s1.jpg" />
+					</div>
+					<p class="pay-day">
+						200
+					</p>
+					<div class="add-sub">
+						<i class="iconfont">&#xe643;</i>
+						<input type="text" name="">
+						<i class="iconfont">&#xe603;</i>
+					</div>
+					<div class="del">
+						删除
+					</div>
+				</li>
+				<li class="goods-incart">
+					<p class="goods-name">
+						无名超贵相机
+					</p>
+					<div class="goods-img">
+						<img src="../images/s1.jpg" />
+					</div>
+					<p class="pay-day">
+						200
+					</p>
+					<div class="add-sub">
+						<i class="iconfont">&#xe643;</i>
+						<input type="text" name="">
+						<i class="iconfont">&#xe603;</i>
+					</div>
+					<div class="del">
+						删除
+					</div>
+				</li>
+				<li class="goods-incart">
+					<p class="goods-name">
+						无名超贵相机
+					</p>
+					<div class="goods-img">
+						<img src="../images/s1.jpg" />
+					</div>
+					<p class="pay-day">
+						200
+					</p>
+					<div class="add-sub">
+						<i class="iconfont">&#xe643;</i>
+						<input type="text" name="">
+						<i class="iconfont">&#xe603;</i>
+					</div>
+					<div class="del">
+						删除
+					</div>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<footer>
+		<div>
+			<a href="javascript:;">法律声明及隐私权政策</a> | 
+			<a href="javascript:;">知识产权</a>
+	 		<p>© 2017 shiqiang.com 版权所有</p>
+		</div>
+	<d/footer>
+	<!-- <input type="text" name="" style="width:30px;border:0;height:30px;border-radius:50%;text-align:center;line-height:30px;border:1px solid #000;"> -->
+</body>
+<script type="text/javascript" src="../js/jquery-3.0.0.js"></script>
+<script type="text/javascript">
+						// var bid = 1;
+						// var ids_str = "" + bid;
+						// ids_str += "3" + ",";
+						// ids_str += "6" + ",";
+						// ids_str += "7" + ",";
+						// console.log(ids_str);
+	// $(function(){
+ //        get_info();
+ //        var tag = setInterval('AutoScroll(".info-list")',3000);
+ //        $(".info-list").on({
+ //            mouseenter : function(){
+ //                $(this).css({"cursor":"pointer"});
+ //                clearInterval(tag);
+ //            },
+ //            mouseleave : function(){
+ //                tag = setInterval('AutoScroll(".info-list")',3000);
+ //            }
+ //        });
+ //    });
+
+ //放大镜
+ // $("#main_left .small_img").on({
+	// 	mouseenter:function(){
+	// 		var srcImg = $(this).attr("src");
+	// 		$("#main_left .big_img").attr("src",srcImg);
+	// 		$(this).parent().css("border","1px solid #ff9065");
+	// 	},
+	// 	mouseout:function(){
+	// 		$(this).parent().css("border","1px solid #f3f3f3");
+	// 	}
+	// });
+
+	// $("#main_left .big_img_div").on({
+	// 	mousemove:function(e){
+	// 		$("#main_left .scope_big").show();
+	// 		$("#main_left  .scope_big img").attr("src",$("#main_left  .imgBig").attr("src"));
+	// 		var smallWidth = $("#main_left .scope_small").width();
+	// 		var smallHeight = $("#main_left .scope_small").height();
+	// 		var smallX = e.pageX - $(this).offset().left - smallWidth / 2;
+	// 		var smallY = e.pageY - $(this).offset().top  - smallHeight / 2;
+	// 		var maxX = $(this).width() - smallWidth;
+	// 		var maxY = $(this).height() - smallHeight;
+	// 		$("#main_left .scope_small").show().css({
+	// 			left:Math.max(Math.min(maxX,smallX),0),
+	// 			top:Math.max(Math.min(maxY,smallY),0)
+	// 		});
+
+	// 		$("#main_left .scope_big img").css({
+	// 			left:Math.max(Math.min(maxX,smallX),0) * -3,
+	// 			top:Math.max(Math.min(maxY,smallY),0) * -3
+	// 		});
+	// 	},
+	// 	mouseout:function(){
+	// 		$("#main_left .scope_big").hide();
+	// 		$("#main_left .scope_small").hide();
+	// 	}
+	// });
+</script>
+</html>

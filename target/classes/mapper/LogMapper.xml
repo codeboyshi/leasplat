@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"      
+ "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+ <mapper namespace="cn.shi.leasplat.dao.SystemLogDAO"> 
+ 
+<sql id="querySystemLogInfo">
+	select 
+		id,
+		module_name as moduleName,
+		operation_name as operationName,
+		create_time as createTime,
+		user_id as userId
+	from system_logs 
+</sql>
+ 
+ <insert id="saveSystemLog"
+ 		parameterType="cn.shi.leasplat.entity.SystemLog"
+ 		>
+ 	insert into
+ 		system_logs
+ 		(
+ 		module_name,
+ 		operation_name,
+ 		create_time,
+ 		user_id
+ 		)
+ 	values(
+ 		#{moduleName},#{operationName},#{createTime},#{userId}
+ 	)
+ </insert>
+ 
+	 
+ <select id="findPage"
+ 		resultType="cn.shi.leasplat.entity.SystemLog">
+  	<include refid="querySystemLogInfo"></include>
+ 		order by id desc
+ 		limit #{0},#{1}
+ </select>
+ 
+ <select id="getCount"
+ 	resultType="int">
+ 	select count(*)
+ 		from
+ 		system_logs
+ </select>
+ </mapper>
